@@ -1,36 +1,139 @@
-header h1 {
+
+h1{
+	text-align: center;
+}
+
+main{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.calculator-container{
+	background-color: #f3f3f3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 50%;
+	height: 100%;
+	border: 1px solid black;
+	-webkit-box-shadow: -1px 3px 53px 2px rgba(0,0,0,0.55);
+	-moz-box-shadow: -1px 3px 53px 2px rgba(0,0,0,0.55);
+	box-shadow: -1px 3px 53px 2px rgba(0,0,0,0.55);
+	border-radius:20px 20px 10px 10px;
+}
+.displayer{
+	width: 100%;
+	height: 250px;
+	background-color: black;
+	border-radius:20px 20px 5px 5px;
+	color: white;
+}
+.buttons{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: space-around;
+}
+ button{
+	font-size: 30px;
+	width:25%;
+	height: 80px;
+	border: none;
+	border-radius:10px ;
+	-webkit-box-shadow: -1px 3px 66px -11px rgba(0,0,0,0.55);
+	-moz-box-shadow: -1px 3px 66px -11px rgba(0,0,0,0.55);
+	box-shadow: -1px 3px 66px -11px rgba(0,0,0,0.55);
+	cursor: pointer;
+}
+ .buttons .btn{
+	background-color: rgb(161, 76, 240);
+	color:#f3f3f3
+}
+button:hover{
+	transition: 0.2s;
+	background-color: rgb(149, 170, 188);
+}
+.buttons .btn:hover{
+	background-color: blueviolet;
+}
+
+@media (max-width: 1000px) {
+	.calculator-container{
+		width: 70%;
+		height: 600px;
+	}
+	button{
+		font-size:1.5rem;
+		width:25%;
+		height:70px;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* header h1 {
 	text-align: center;
 	margin-bottom: 40px;
 }
 
 .calculator-container {
+	width: 50%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-direction: column;
 }
 
 .displayer {
-	grid-column: 1 / -1;
+	margin: 0 auto;
 	background-color: gray;
 	margin-bottom: 10px;
-	height: 70px;
+	height: 100px;
+	width: 100%;
 }
 
 .buttons {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	/* grid-template-columns: repeat(4, 1fr); */
 	/* width: 120px; */
-	width: 50%;
+	/* width: 50%;
 	height: 80%;
-}
+} */
 
-.buttons button {
+/* .buttons button { */
 	/* width: 120px; */
 	/* height: 40px; */
 	/* max-width: 120px; */
-	padding: 40px;
-}
+	/* padding: 40px;
+} */
 
-.double {
+/* .double {
 	grid-column: -5 / -3;
-}
+} */ 
