@@ -31,8 +31,12 @@ main {
 	display: flex;
 	align-items: center;
 	justify-content: end;
+	flex-wrap: wrap;
+	overflow-wrap: break-word;
 	padding-right: 15px;
+	white-space: pre-wrap;
 }
+
 .buttons {
 	display: flex;
 	flex-wrap: wrap;
@@ -40,6 +44,9 @@ main {
 	justify-content: space-around;
 }
 button {
+	width: 120px;
+	height: 40px;
+
 	font-size: 30px;
 	width: 25%;
 	height: 80px;
@@ -50,6 +57,7 @@ button {
 	box-shadow: -1px 3px 66px -11px rgba(0, 0, 0, 0.55);
 	cursor: pointer;
 }
+
 .buttons .btn {
 	background-color: rgb(161, 76, 240);
 	color: #f3f3f3;
