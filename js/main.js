@@ -86,7 +86,8 @@ buttons.forEach((item) => {
 				);
 				console.log(`the result = ${result}`);
 				if (secondValue && firstValue && operation) {
-					result = secondValue;
+					firstValue = result.toString();
+					secondValue = '';
 				}
 			}
 		}
