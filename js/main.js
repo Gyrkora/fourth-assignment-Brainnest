@@ -66,7 +66,7 @@ function calculate() {
 function handleInput(input) {
 	if (input === 'clear') {
 		clear();
-	} else if (input === 'backspace') {
+	} else if (input == 'backspace') {
 		backSpace();
 	} else if (display.innerText == '' && input === '=') {
 		display.textContent = 'Empty!';
@@ -130,7 +130,9 @@ window.addEventListener('keydown', function keyPressed(e) {
 
 	const input = e.key;
 
-	if (numbers.includes(input)) {
+	if (e.key == 'Backspace') {
+		backSpace();
+	} else if (numbers.includes(input)) {
 		handleInput(input);
 	}
 });
