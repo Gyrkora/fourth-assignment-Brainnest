@@ -1,14 +1,13 @@
-
-h1{
+h1 {
 	text-align: center;
 }
 
-main{
+main {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-.calculator-container{
+.calculator-container {
 	background-color: #f3f3f3;
 	display: flex;
 	justify-content: center;
@@ -17,86 +16,63 @@ main{
 	width: 50%;
 	height: 100%;
 	border: 1px solid black;
-	-webkit-box-shadow: -1px 3px 53px 2px rgba(0,0,0,0.55);
-	-moz-box-shadow: -1px 3px 53px 2px rgba(0,0,0,0.55);
-	box-shadow: -1px 3px 53px 2px rgba(0,0,0,0.55);
-	border-radius:20px 20px 10px 10px;
+	-webkit-box-shadow: -1px 3px 53px 2px rgba(0, 0, 0, 0.55);
+	-moz-box-shadow: -1px 3px 53px 2px rgba(0, 0, 0, 0.55);
+	box-shadow: -1px 3px 53px 2px rgba(0, 0, 0, 0.55);
+	border-radius: 20px 20px 10px 10px;
 }
-.displayer{
+.displayer {
 	width: 100%;
 	height: 250px;
 	background-color: black;
-	border-radius:20px 20px 5px 5px;
+	border-radius: 20px 20px 5px 5px;
 	color: white;
+	font-size: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	padding-right: 15px;
 }
-.buttons{
+.buttons {
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
 	justify-content: space-around;
 }
- button{
+button {
 	font-size: 30px;
-	width:25%;
+	width: 25%;
 	height: 80px;
 	border: none;
-	border-radius:10px ;
-	-webkit-box-shadow: -1px 3px 66px -11px rgba(0,0,0,0.55);
-	-moz-box-shadow: -1px 3px 66px -11px rgba(0,0,0,0.55);
-	box-shadow: -1px 3px 66px -11px rgba(0,0,0,0.55);
+	border-radius: 10px;
+	-webkit-box-shadow: -1px 3px 66px -11px rgba(0, 0, 0, 0.55);
+	-moz-box-shadow: -1px 3px 66px -11px rgba(0, 0, 0, 0.55);
+	box-shadow: -1px 3px 66px -11px rgba(0, 0, 0, 0.55);
 	cursor: pointer;
 }
- .buttons .btn{
+.buttons .btn {
 	background-color: rgb(161, 76, 240);
-	color:#f3f3f3
+	color: #f3f3f3;
 }
-button:hover{
+button:hover {
 	transition: 0.2s;
 	background-color: rgb(149, 170, 188);
 }
-.buttons .btn:hover{
+.buttons .btn:hover {
 	background-color: blueviolet;
 }
 
 @media (max-width: 1000px) {
-	.calculator-container{
+	.calculator-container {
 		width: 70%;
 		height: 600px;
 	}
-	button{
-		font-size:1.5rem;
-		width:25%;
-		height:70px;
+	button {
+		font-size: 1.5rem;
+		width: 25%;
+		height: 70px;
 	}
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* header h1 {
 	text-align: center;
@@ -122,18 +98,18 @@ button:hover{
 .buttons {
 	display: grid;
 	/* grid-template-columns: repeat(4, 1fr); */
-	/* width: 120px; */
-	/* width: 50%;
+/* width: 120px; */
+/* width: 50%;
 	height: 80%;
 } */
 
 /* .buttons button { */
-	/* width: 120px; */
-	/* height: 40px; */
-	/* max-width: 120px; */
-	/* padding: 40px;
+/* width: 120px; */
+/* height: 40px; */
+/* max-width: 120px; */
+/* padding: 40px;
 } */
 
 /* .double {
 	grid-column: -5 / -3;
-} */ 
+} */

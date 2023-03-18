@@ -1,10 +1,14 @@
 //the functions add, sub, multiply, divide
-let firstValue ='';
-let secondValue=''
-let Operation = '';
+let firstValue = '';
+let secondValue = '';
+let operation = '';
+let result = 0;
+
+const display = document.querySelector('.displayer');
+const buttons = document.querySelectorAll('button');
 
 function add(num1, num2) {
-	return num1+num2;
+	return num1 + num2;
 }
 
 function subtract(num1, num2) {
@@ -12,117 +16,112 @@ function subtract(num1, num2) {
 }
 
 function divide(num1, num2) {
-	return num1 / num2;
+	return num2 / num1;
 }
 
 function multiply(num1, num2) {
 	return num1 * num2;
 }
 
-let result;
-function operate(opperator,a,b) {
+function operate(opperator, a, b) {
 	if (opperator === '+') {
-		result = add(a,b);
-		return result;
+		return add(a, b);
 	} else if (opperator === '-') {
-		result = subtract(a,b);
-		return result;
+		return subtract(a, b);
 	} else if (opperator === '*') {
-		result = multiply(a,b);
-		return result;
+		return multiply(a, b);
 	} else if (opperator === '/') {
-		result = subtract(a,b);
-		return result;
+		return subtract(a, b);
 	} else {
-		return "Erro:invalid operator";
+		return 'Error:invalid operator';
 	}
 }
- 
-function clear(){
+
+function clear() {
 	display.innerText = '';
-	firstValue=""
-	secondValue =""
+	firstValue = '';
+	secondValue = '';
 }
-function backspace(){
-	let string = display.innerText.toString();
-	display.innerText = string.substr(0, string.length - 1);
+function backSpace() {
+	let contentDisplayed = display.innerText.toString();
+	display.innerText = contentDisplayed.substr(0, contentDisplayed.length - 1);
+	// secondValue = secondValue.substr(0, secondValue.length - 1);
 }
-
-
-
-
-const display = document.querySelector('.displayer');
-const buttons = document.querySelectorAll('button');
 
 buttons.forEach((item) => {
 	item.onclick = () => {
 		if (item.id == 'clear') {
-			clear()
-		}else if (item.id == 'backspace') {
-			backspace()
-		}else if (display.innerText == '' && item.id == '=') {
-			display.innerText = 'Empty!';
-			setTimeout(() => (display.innerText = ''), 2000);
-		}else{
-			if(item.id>="0" && item.id<="9"){
-				display.innerText +=item.id
-				firstValue+=item.id
+			clear();
+		} else if (item.id == 'backspace') {
+			backSpace();
+		} else if (display.innerText == '' && item.id == '=') {
+			display.textContent = 'Empty!';
+			setTimeout(() => (display.textContent = ''), 2000);
+		} else if (item.id === '.') {
+			display.textContent += item.id;
+		} else {
+			if (item.id >= '0' && item.id <= '9') {
+				display.textContent += item.id;
+				firstValue += item.id;
+			}
+			if (
+				item.id === '+' ||
+				item.id === '-' ||
+				item.id === '*' ||
+				item.id === '/'
+				// ||
+				// item.id === '='
+			) {
+				operation = item.id;
+				display.innerText += item.id;
+				secondValue = firstValue;
+				firstValue = '';
+			}
 
+			if (item.id === '=') {
+				result = operate(operation, Number(firstValue), Number(secondValue));
+				display.textContent = result;
+				console.log(
+					`first value = ${firstValue} ${operation} second value = ${secondValue}`
+				);
+				console.log(`the result = ${result}`);
+				if (secondValue && firstValue && operation) {
+					result = secondValue;
+				}
 			}
-			if(item.id==='+'||item.id==='-'||item.id==='*'){
-				let result
-					display.innerText+=item.id
-					secondValue = firstValue
-					firstValue = ''
-					if(item.id==="="){
-						if(item.id=="+"){
-							result =add(firstValue,secondValue)
-							display.innerText(result)
-						}
-						else if(item.id=="-"){
-							result =subtract(firstValue,secondValue)
-							display.innerText(result)
-						}
-						else if(item.id=="*"){
-							result =multiply(firstValue,secondValue)
-							display.innerText(result)
-						}
-						else if(item.id=="/"){
-							result =divide(firstValue,secondValue)
-							display.innerText(result)
-						}
-					}
-			}
-			
-		 }
-		 console.log(firstValue,secondValue)
+		}
 	};
 });
 
+window.addEventListener('keydown', function keyPressed(e) {
+	if (e.defaultPrevented) {
+		return;
+	}
 
+	const numbers = [
+		'0',
+		'1',
+		'2',
+		'3',
+		'4',
+		'5',
+		'6',
+		'7',
+		'8',
+		'9',
+		'+',
+		'-',
+		'.',
+		'/',
+		'*',
+	];
 
-
-
-
-//console.log(firstValue,secondValue)
-
-
-
-
-// const buttons = document.querySelectorAll('button')
-// console.log(buttons[4].innerHTML)
-
-// buttons.forEach((button)=>{
-//     button.addEventListener('click',display(button.innerHTML))
-
-// })
-// function display(value){
-//     let display = document.querySelector('.displayer')
-//     display.innert= value
-//     console.log(value)
-// }
-
-
+	if (numbers.includes(e.key)) {
+		display.textContent += e.key;
+	} else if (e.key == 'Backspace') {
+		backSpace();
+	}
+});
 
 // if (action === 'decimal') {
 // 	display.textContent = displayedNum + '.'
