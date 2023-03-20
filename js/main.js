@@ -15,9 +15,9 @@ function subtract(num1, num2) {
 }
 
 function divide(num1, num2) {
-	if (num2 === 0) {
-		return 'Error: impossible operation';
-	} else {
+	if (num2 === "0") {
+		 return 'erro: infinity'
+	}else {
 		return num1 / num2;
 	}
 }
@@ -35,7 +35,7 @@ function operate(operator, a, b) {
 		return multiply(a, b);
 	} else if (operator === '/') {
 		return divide(a, b);
-	} else {
+	}else {
 		return 'Error: invalid operator';
 	}
 }
@@ -55,11 +55,23 @@ function backSpace() {
 function calculate() {
 	if (secondValue && firstValue && operation) {
 		result = operate(operation, Number(secondValue), Number(firstValue));
+		//The number/0 correction
+		if (result==Infinity){
+			display.textContent= result
+			setTimeout(() => (display.textContent = ''), 300);
+			firstValue=''
+			secondValue=''
+			operation=''
+			result = 0
+		}
+		else{
+
 		display.textContent =
 			Math.round((result + Number.EPSILON) * 100000000) / 100000000;
 		firstValue = result.toString();
 		secondValue = '';
 		operation = '';
+		}
 	}
 }
 
@@ -73,25 +85,50 @@ function handleInput(input) {
 		setTimeout(() => (display.textContent = ''), 2000);
 	} else {
 		if (input >= '0' && input <= '9') {
-			display.textContent += input;
-			firstValue += input;
+			// The Zero correction
+			if (input=='0'&&(display.textContent ==""||display.textContent =='0')){
+				display.textContent='0'
+			}
+			else{
+				if(display.innerText=="0"){
+					display.textContent =''
+				}
+				display.textContent += input;
+				firstValue += input;
+			}
+			
 		} else if (
 			input === '+' ||
 			input === '-' ||
 			input === '*' ||
 			input === '/'
 		) {
+			if ((input ==='+'||input ==='-'||input ==='/'||input ==='*') &&display.textContent ==""){
+				display.textContent=''
+			}
 			if (operation !== '' && firstValue !== '') {
 				calculate();
 			}
+			// The Operation correction
+			if (operation !=='' && firstValue==''){
+				let disp = display.innerText.slice(0,(display.innerText.length - 1))
+				operation = input
+				display.innerText = disp + input
+			}
+			else{
+
 			operation = input;
 			display.innerText += input;
 			secondValue = firstValue;
 			firstValue = '';
+			}
 		} else if (input === '=') {
 			calculate();
 		} else if (input === '.') {
-			if (!firstValue.includes('.')) {
+			// the dot correction
+			if (input=='.'&&(display.textContent ==""||display.textContent =='.')){
+				display.textContent=''
+			}else if (!firstValue.includes('.')) {
 				display.textContent += input;
 				firstValue += input;
 			}
@@ -114,7 +151,7 @@ const numbers = [
 	'-',
 	'.',
 	'/',
-	'*',
+	'*'
 ];
 
 buttons.forEach((item) => {
