@@ -16,7 +16,7 @@ function subtract(num1, num2) {
 
 function divide(num1, num2) {
 	if (num2 === "0") {
-		 return 'erro: infinity'
+		 return 'error: infinity'
 	}else {
 		return num1 / num2;
 	}
@@ -44,7 +44,7 @@ function clear() {
 	display.innerText = '';
 	firstValue = '';
 	secondValue = '';
-	result=0
+	result = 0 ;
 }
 
 function backSpace() {
@@ -60,12 +60,10 @@ function calculate() {
 		if (result==Infinity){
 			display.textContent= result
 			setTimeout(() => (display.textContent = ''), 300);
-			firstValue=''
-			secondValue=''
-			operation=''
-			result = 0
-		}
-		else{
+			firstValue='';
+			secondValue='';
+			operation='';
+		} else{
 
 		display.textContent =
 			Math.round((result + Number.EPSILON) * 100000) / 100000;
@@ -111,17 +109,15 @@ function handleInput(input) {
 				calculate();
 			}
 			// The Operation correction
-			if (operation !=='' && firstValue==''){
-				let disp = display.innerText.slice(0,(display.innerText.length - 1))
-				operation = input
-				display.innerText = disp + input
-			}
-			else{
-
-			operation = input;
-			display.innerText += input;
-			secondValue = firstValue;
-			firstValue = '';
+			if (operation !== '' && firstValue == '') {
+				let disp = display.innerText.slice(0, display.innerText.length - 1);
+				operation = input;
+				display.innerText = disp + input;
+			} else {
+				operation = input;
+				display.innerText += input;
+				secondValue = firstValue;
+				firstValue = '';
 			}
 		} else if (input === '=') {
 			calculate();
@@ -152,7 +148,7 @@ const numbers = [
 	'-',
 	'.',
 	'/',
-	'*'
+	'*',
 ];
 
 buttons.forEach((item) => {
