@@ -44,6 +44,7 @@ function clear() {
 	display.innerText = '';
 	firstValue = '';
 	secondValue = '';
+	result=0
 }
 
 function backSpace() {
@@ -67,7 +68,7 @@ function calculate() {
 		else{
 
 		display.textContent =
-			Math.round((result + Number.EPSILON) * 100000000) / 100000000;
+			Math.round((result + Number.EPSILON) * 100000) / 100000;
 		firstValue = result.toString();
 		secondValue = '';
 		operation = '';
